@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 40" fill="none" aria-hidden="true">
-  <!-- Brand mark AT. — heavy geometric wordmark + blue square -->
-  <path
-    fill="#F2F4F7"
-    d="M1.5 36.5 17.2 2.5h8.2L30.8 36.5h-9.2l-1.35-9.1H12.3l-1.4 9.1H1.5Zm12.1-15.4h6.4L16.8 6.4l-3.2 14.7Z"
-  />
-  <path fill="#F2F4F7" d="M33.2 2.5h26.2v7.8H47.6V36.5h-9V10.3H33.2V2.5Z" />
-  <rect x="61.2" y="28.4" width="9" height="9" fill="#2F6BFF" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86 36" fill="none" aria-hidden="true">
+  <path fill="#F4F4F4" d="M1 34.5 18.2 1.2h7.4L32.4 34.5h-8.6l-1.5-8.6H11.2L9.6 34.5H1Zm11.6-14.2h8.2L16.9 5.2l-4.3 15.1Z"/>
+  <path fill="#F4F4F4" d="M38 1.2h28.2v7.4H56.4V34.5h-8.4V8.6H38V1.2Z"/>
+  <rect x="72.2" y="25.2" width="11" height="11" fill="#0A46FF"/>
 </svg>

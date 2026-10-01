@@ -2,11 +2,9 @@
   var header = document.querySelector(".header");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".nav");
-  var form = document.querySelector("#book-form");
-  var carSelect = document.querySelector("#car");
-  var success = document.querySelector("#form-success");
   var filters = document.querySelectorAll("[data-filter]");
   var cards = document.querySelectorAll(".car");
+  var forms = document.querySelectorAll(".book-form");
 
   var ticking = false;
   function onScroll() {
@@ -37,10 +35,30 @@
     });
   }
 
+  function applyFilter(value) {
+    filters.forEach(function (item) {
+      var active = item.getAttribute("data-filter") === value;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    cards.forEach(function (card) {
+      var show = value === "all" || card.getAttribute("data-class") === value;
+      card.hidden = !show;
+      if (show) card.classList.add("is-in");
+    });
+  }
+
   document.querySelectorAll("[data-car]").forEach(function (button) {
     button.addEventListener("click", function () {
-      if (!carSelect) return;
-      carSelect.value = button.getAttribute("data-car");
+      var value = button.getAttribute("data-car");
+      forms.forEach(function (form) {
+        var select = form.querySelector("[name='car']");
+        if (!select) return;
+        var hasOption = Array.prototype.some.call(select.options, function (option) {
+          return option.value === value;
+        });
+        if (hasOption) select.value = value;
+      });
       cards.forEach(function (card) {
         card.classList.toggle("is-picked", card.contains(button));
       });
@@ -48,28 +66,12 @@
       if (book && button.tagName !== "A") {
         book.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      var nameField = document.querySelector("#name");
-      if (nameField) {
-        window.setTimeout(function () {
-          nameField.focus({ preventScroll: true });
-        }, 450);
-      }
     });
   });
 
   filters.forEach(function (button) {
     button.addEventListener("click", function () {
-      var value = button.getAttribute("data-filter");
-      filters.forEach(function (item) {
-        var active = item === button;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-      cards.forEach(function (card) {
-        var show = value === "all" || card.getAttribute("data-class") === value;
-        card.hidden = !show;
-        if (show) card.classList.add("is-in");
-      });
+      applyFilter(button.getAttribute("data-filter"));
     });
   });
 
@@ -128,13 +130,13 @@
     }
   }
 
-  var dateInput = document.querySelector("#date");
-  if (dateInput) {
-    var today = new Date();
-    var month = String(today.getMonth() + 1).padStart(2, "0");
-    var day = String(today.getDate()).padStart(2, "0");
-    dateInput.min = today.getFullYear() + "-" + month + "-" + day;
-  }
+  var today = new Date();
+  var month = String(today.getMonth() + 1).padStart(2, "0");
+  var day = String(today.getDate()).padStart(2, "0");
+  var minDate = today.getFullYear() + "-" + month + "-" + day;
+  document.querySelectorAll("input[type='date']").forEach(function (dateInput) {
+    dateInput.min = minDate;
+  });
 
   function digits(value) {
     return (value || "").replace(/\D/g, "");
@@ -145,14 +147,23 @@
     field.setAttribute("aria-invalid", invalid ? "true" : "false");
   }
 
-  if (form) {
+  var bodyFilters = { "Купе": "coupe", "Лифтбек": "liftback", "Кроссовер": "crossover", "Гран купе": "grand" };
+
+  forms.forEach(function (form) {
+    var select = form.querySelector("[name='car']");
+    if (select && form.closest(".finder")) {
+      select.addEventListener("change", function () {
+        applyFilter(bodyFilters[select.value] || "all");
+      });
+    }
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var data = new FormData(form);
       var name = String(data.get("name") || "").trim();
       var phone = String(data.get("phone") || "").trim();
-      var nameField = form.querySelector("#name");
-      var phoneField = form.querySelector("#phone");
+      var nameField = form.querySelector("[name='name']");
+      var phoneField = form.querySelector("[name='phone']");
       var valid = true;
 
       if (name.length < 2) {
@@ -175,10 +186,9 @@
         return;
       }
 
-      if (success) {
-        success.hidden = false;
-      }
+      var success = form.querySelector(".form-success");
+      if (success) success.hidden = false;
       form.classList.add("is-sent");
     });
-  }
+  });
 })();
