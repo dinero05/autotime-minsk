@@ -451,7 +451,8 @@ h2 {
 .how .section-head p,
 .light-head p { color: var(--muted); }
 .how .eyebrow, .book .eyebrow { color: var(--blue-2); }
-.finder { background: #f3f3f3; padding: 28px 0 8px; }
+.finder { background: #f3f3f3; padding: 20px 0 0; }
+.park { padding-top: 56px; }
 .finder-card {
   display: grid;
   gap: 18px;
@@ -472,13 +473,29 @@ h2 {
 .finder-fields label,
 .form label { display: grid; gap: 6px; font-size: 0.78rem; font-weight: 700; }
 .finder-fields input,
-.finder-fields select {
+.finder-fields select,
+.form select {
   min-height: 48px;
-  border: 0;
-  border-radius: 12px;
-  background: #fff;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-radius: 14px;
+  background-color: #f7f7f7;
   color: #0a0a0a;
-  padding: 0 12px;
+  padding: 0 40px 0 14px;
+}
+.finder-fields select,
+.form select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%230a0a0a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.finder-fields select:focus,
+.form select:focus,
+.finder-fields input:focus {
+  outline: 2px solid rgba(10, 70, 255, 0.45);
+  border-color: #0a46ff;
+  background-color: #fff;
 }
 .finder-links { display: flex; gap: 10px; flex-wrap: wrap; }
 .finder-card.is-sent .finder-fields,
@@ -707,8 +724,8 @@ h2 {
   font-weight: 800;
   letter-spacing: -0.04em;
 }
-.messengers { display: flex; gap: 14px; margin: 14px 0 22px; }
-.messengers a { color: var(--blue-2); font-weight: 700; }
+.messengers { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 22px; }
+.messengers .btn { min-height: 42px; }
 .after { color: var(--muted); padding-left: 18px; display: grid; gap: 8px; }
 
 .form {
@@ -727,17 +744,25 @@ h2 {
 .form select {
   width: 100%;
   min-height: 48px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid #d7e0ee;
-  background: #f7f9fc;
-  padding: 0 12px;
+  background-color: #f7f9fc;
+  padding: 0 14px;
   color: var(--text);
+}
+.form select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%230a0a0a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
 }
 .form input:focus,
 .form select:focus {
-  outline: 2px solid rgba(47, 107, 255, 0.45);
-  border-color: var(--blue);
-  background: #fff;
+  outline: 2px solid rgba(10, 70, 255, 0.45);
+  border-color: #0a46ff;
+  background-color: #fff;
 }
 .form input[aria-invalid="true"] { border-color: #d14343; }
 .form-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -783,7 +808,7 @@ h2 {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 0.7fr 0.7fr 1fr;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr;
   gap: 36px;
 }
 .footer .logo { color: #fff; margin-bottom: 10px; }

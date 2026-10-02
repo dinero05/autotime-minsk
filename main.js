@@ -147,16 +147,7 @@
     field.setAttribute("aria-invalid", invalid ? "true" : "false");
   }
 
-  var bodyFilters = { "Купе": "coupe", "Лифтбек": "liftback", "Кроссовер": "crossover", "Гран купе": "grand" };
-
   forms.forEach(function (form) {
-    var select = form.querySelector("[name='car']");
-    if (select && form.closest(".finder")) {
-      select.addEventListener("change", function () {
-        applyFilter(bodyFilters[select.value] || "all");
-      });
-    }
-
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var data = new FormData(form);
