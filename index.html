@@ -163,8 +163,8 @@
               <button class="btn" type="submit">Подобрать авто</button>
             </div>
             <div class="finder-links">
-              <a href="https://t.me/+375333334090" target="_blank" rel="noopener">Написать в Telegram</a>
-              <a href="#park">Весь автопарк</a>
+              <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
+              <a class="btn btn-ghost" href="#park">Весь автопарк</a>
             </div>
             <p class="form-success" hidden role="status">
               <strong>Заявка принята.</strong>
@@ -174,6 +174,23 @@
           </form>
         </div>
       </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Не владей — выбирай</span>
+          <span>не копи на мечту — бери в аренду</span>
+          <span>Любая тачка — один бренд</span>
+          <span>Гараж под настроение</span>
+          <span>Доставка 24/7</span>
+          <span>Полное КАСКО</span>
+          <span>Не владей — выбирай</span>
+          <span>не копи на мечту — бери в аренду</span>
+          <span>Любая тачка — один бренд</span>
+          <span>Гараж под настроение</span>
+          <span>Доставка 24/7</span>
+          <span>Полное КАСКО</span>
+        </div>
+      </div>
 
       <section class="section park" id="park">
         <div class="container">
@@ -271,33 +288,40 @@
       </section>
 
       <section class="section earn" id="earn">
-        <div class="container earn-grid">
-          <div class="reveal">
-            <p class="eyebrow">Сдать авто</p>
-            <h2>Ваш автомобиль может зарабатывать.</h2>
-            <p class="earn-lead">
-              Машина стоит во дворе — а могла бы работать. Отдаёте её AutoTime в управление:
-              мы ищем арендаторов, проверяем стаж и документы, следим за состоянием и платим вам за каждые сутки в прокате.
+        <div class="container">
+          <div class="earn-top">
+            <div class="reveal">
+              <p class="eyebrow">Сдать авто</p>
+              <h2>Ваш автомобиль может зарабатывать.</h2>
+            </div>
+            <p class="earn-lead reveal">
+              Машина стоит во дворе — а могла бы работать. Отдаёте её в управление AutoTime:
+              ищем арендаторов, проверяем водителей и платим за каждые сутки в прокате.
             </p>
           </div>
           <div class="earn-points">
             <article class="reveal">
+              <span>01</span>
               <h3>Доход без беготни</h3>
-              <p>Заявки, звонки и передача ключей на нас. Вы получаете выплату, а не переписку с незнакомцами.</p>
+              <p>Заявки, звонки и ключи — на нас. Вам приходит выплата, не переписка с незнакомцами.</p>
             </article>
             <article class="reveal">
+              <span>02</span>
               <h3>Проверка водителей</h3>
               <p>Возраст, стаж и документы смотрим до выдачи. Залог фиксируем в договоре.</p>
             </article>
             <article class="reveal">
+              <span>03</span>
               <h3>Уход за машиной</h3>
               <p>Мойка, топливо по регламенту и осмотр после каждой поездки.</p>
             </article>
           </div>
-          <aside class="earn-card reveal">
-            <p>Ответим и прикинем, сколько может приносить именно ваша машина.</p>
-            <a class="btn" href="#book" data-car="Хочу сдать своё авто">Узнать доход</a>
-            <a class="text-link" href="https://t.me/+375333334090" target="_blank" rel="noopener">или напишите в Telegram</a>
+          <aside class="earn-cta reveal">
+            <p>Посчитаем за 15 минут, сколько может приносить именно ваша машина.</p>
+            <div class="earn-actions">
+              <a class="btn" href="#book" data-car="Хочу сдать своё авто">Узнать доход</a>
+              <a class="btn btn-ghost" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
+            </div>
           </aside>
         </div>
       </section>
@@ -381,8 +405,10 @@
             <p class="eyebrow">Вопросы</p>
             <h2>Вопросы</h2>
             <p class="faq-note">Если своего вопроса нет в списке — позвоните или напишите в Telegram.</p>
-            <a class="btn" href="tel:+375333334090">Позвонить</a>
-            <a class="text-link" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
+            <div class="faq-actions">
+              <a class="btn" href="tel:+375333334090">Позвонить</a>
+              <a class="btn btn-line" href="https://t.me/+375333334090" target="_blank" rel="noopener">Telegram</a>
+            </div>
           </div>
 
           <div class="faq-list">
